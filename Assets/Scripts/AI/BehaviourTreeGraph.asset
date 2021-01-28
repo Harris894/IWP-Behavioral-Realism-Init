@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8599964415023091210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a34e3006b384b488fe56e391e8fe4a, type: 3}
+  m_Name: BT Root
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -6.5, y: -40}
+  ports:
+    keys:
+    - inResult
+    - outResult
+    values:
+    - _fieldName: inResult
+      _node: {fileID: -8599964415023091210}
+      _typeQualifiedName: BTResult, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outResult
+        node: {fileID: -5617994836448455378}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outResult
+      _node: {fileID: -8599964415023091210}
+      _typeQualifiedName: BTResult, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  outResult: 0
+  nodeDescription: 
+  inResult: 0
+--- !u!114 &-5617994836448455378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34697c597a419734f8449d1f866d19d0, type: 3}
+  m_Name: BT Selector
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -296, y: -40}
+  ports:
+    keys:
+    - inResults
+    - outResult
+    values:
+    - _fieldName: inResults
+      _node: {fileID: -5617994836448455378}
+      _typeQualifiedName: System.Collections.Generic.List`1[[BTResult, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: outResult
+        node: {fileID: 3121250488154618151}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outResult
+      _node: {fileID: -5617994836448455378}
+      _typeQualifiedName: BTResult, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inResult
+        node: {fileID: -8599964415023091210}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  outResult: 0
+  nodeDescription: 
+  inResults: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d6309db85fb2f041b69e56b49f6c69a, type: 3}
+  m_Name: BehaviourTreeGraph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -8599964415023091210}
+  - {fileID: -5617994836448455378}
+  - {fileID: 3121250488154618151}
+  - {fileID: 9108523960800838390}
+--- !u!114 &3121250488154618151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e98027857e54e74fbd60683bbc761aa, type: 3}
+  m_Name: BT Wait
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -616, y: -216}
+  ports:
+    keys:
+    - inResult
+    - interruptIfTrue
+    - outResult
+    values:
+    - _fieldName: inResult
+      _node: {fileID: 3121250488154618151}
+      _typeQualifiedName: BTResult, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: outResult
+        node: {fileID: 9108523960800838390}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: interruptIfTrue
+      _node: {fileID: 3121250488154618151}
+      _typeQualifiedName: BTResult, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: outResult
+      _node: {fileID: 3121250488154618151}
+      _typeQualifiedName: BTResult, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inResults
+        node: {fileID: -5617994836448455378}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  outResult: 0
+  nodeDescription: 
+  inResult: 0
+  interruptIfTrue: 0
+  waitType: 0
+  waitTime: 3
+--- !u!114 &9108523960800838390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ae1bb1dc128de4896590efcf4523a5, type: 3}
+  m_Name: BT Is
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -872, y: -216}
+  ports:
+    keys:
+    - outResult
+    values:
+    - _fieldName: outResult
+      _node: {fileID: 9108523960800838390}
+      _typeQualifiedName: BTResult, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: inResult
+        node: {fileID: 3121250488154618151}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  outResult: 0
+  nodeDescription: 
+  isOperation: 2
